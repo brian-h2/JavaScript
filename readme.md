@@ -1,3 +1,4 @@
+
 ## Objetivos sobre JS
 
 ***
@@ -8,15 +9,17 @@
 4. Crear un total de los productos en el carrito
 5. Almacenar los productos aunque se actualice la pagina
 
-## Objetivos sobre css
-
 ***
-
-1. Incorporar Tailwind como framework para estilos.
 
 ## Proyecto
 
-Crear un eccomerce para practicar JS antes de empezar con react.
+Crear un eccomerce para practicar JS antes de empezar con react, se realiza con design mobile para despues pasar a escritorio.
 
-1. Usar Boostrap 
-2. Usar Tailwind
+***
+
+1. NavBar
+2. One section
+3. Lista de productos
+4. Formulario de comunicacion
+5. Footer
+6. Usar Boostrap
