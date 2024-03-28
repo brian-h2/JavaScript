@@ -1,0 +1,7 @@
+
+[
+        {"id": 1, "nombre": "DSLR Camera", "cantidad": 7, "precio": 400, "imagen": "../assets/section/1.jpg" },
+        {"id": 2, "nombre": "Drone", "cantidad": 3, "precio": 500, "imagen": "../assets/section/2.jpg"},
+        {"id": 3, "nombre": "Headphones", "cantidad": 5, "precio": 500, "imagen": "../assets/section/2.jpg"}
+
+]

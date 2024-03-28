@@ -24,7 +24,7 @@
 
         <a class="navbar-brand" href="./index.html" style="color: #fff">Zimmerman</a>
 
-        <box-icon name='cart' href="./pages/cart.html" class="cart" color='#ffffff' ></box-icon>
+        <box-icon name='cart' href="./pages/cart.html" class="cart" color='#ffffff' ><span id="cart-count">0</span></box-icon>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbar-toggler">
           <ul class="navbar-nav ml-auto d-flex justify-content-center">
@@ -35,7 +35,7 @@
               <a class="nav-link" href="#"><box-icon color='#ffffff' name='user' ></box-icon> </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./pages/cart.html"><box-icon color='#ffffff' name='cart'></box-icon></a>
+              <a class="nav-link"><box-icon color='#ffffff' name='cart' id="icon-cart"></box-icon></a>
             </li>
           </ul>
         </div> 
@@ -69,19 +69,19 @@
           <img src="./assets/section/1.jpg" alt="camera">
           <h2>DSLR Camera</h2>
           <h2>$400.00</h2>
-          <button>Buy</button>
+          <button id="btn-buy">Buy</button>
         </div>
         <div class="image">
           <img src="./assets/section/2.jpg" alt="drone">
           <h2>Drone</h2>
           <h2>$500.00</h2>
-          <button>Buy</button>
+          <button id="btn-buy">Buy</button>
         </div>
         <div class="image">
           <img src="./assets/section/3.jpeg" alt="headphones">
           <h2>Noise Cancelling Headphones</h2>
           <h2>$250.00</h2>
-          <button>Buy</button>
+          <button id="btn-buy">Buy</button>
         </div>
         <div class="image">
           <img src="./assets/section/4.jpg" alt="speakers">
@@ -153,10 +153,25 @@
           <p>3111 Fake Stre, Anytiwbm AZ12121</p>
         </div>
       </div>
+
+      <div class="cart-list" id="cart-products">
+        <div class="cart-list-products" id="cart-products-list">
+            <div class="header-cart" id="header-cart">
+             
+          </div>
+          <div class="body-cart" id="body-cart">
+
+          </div>
+          <div class="footer-cart" id="footer-cart">
+            
+          </div>
+
+        </div>
+      </div>
       
 
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./js/javascript.js"></script>
+    <script src="javascript.js"></script>
 </body>
 </html>
