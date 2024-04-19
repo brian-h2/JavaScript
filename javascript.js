@@ -73,17 +73,7 @@ iconCart.addEventListener('click', () => {
     bodyCart.append(product)   
     })
 
-    let precio = carrito.reduce((acc,prod) => acc + prod.precio,0)
 
-    const productPrecio = document.createElement("div")
-    productPrecio.className = "cart-price"
-    productPrecio.innerHTML = `
-        <h3>Precio: $${precio}</h3>
-    `
-    footerCart.append(productPrecio)  
-    
-    
-    
-} );  
 
-//Una vez que ya se genero, que no vuelva a generar 
+
+  
