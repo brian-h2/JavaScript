@@ -1,79 +1,113 @@
-/* 
-3. Apertura y cierre de carrito 
+/*  
 4. Crear contador en el icono carrito
 5. Crear Opcion de Eliminar producto o agregar
 6. Crear un total de los productos en el carrito
+    (Crear funcionalidad de restar para que reste la cantidad del carrito);
 7. Almacenar los productos aunque se actualice la pagina
  */
 
 const contadorCount = document.querySelector("cart");
 
-const contenedorCarrito = document.getElementById("cart-products");
-const bodyCart = document.getElementById("body-cart");
-const footerCart = document.getElementById("footer-cart");
 const iconCart = document.getElementById("icon-cart")
-const headerCart = document.getElementById("header-cart")
 const productsList = document.getElementById("cart-products-list")
+const cardsProductos = document.getElementById("box-2")
 
 
-const boton = document.getElementById("btn-buy");
 
 let carrito = [];
+let cartOpen = false;
 
-let contador = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const conexion = fetch("JSON/productos.json")
+    .then(datos => datos.json())
+    .then(productos => {mostrarProductos(productos)})
 
-
-const conexion = fetch("JSON/productos.json")
-  .then(datos => datos.json())
-  .then(productos => {
-    console.log(productos)
-
-
-})
-
-
-console.log(boton.toggleAttribute.arguments)
-    //Funcion que obtiene el id pasado en la iteracion, para ser find dentro de datos y el que coincida ser agregado al array carrito.
-
-    // const agregarCarrito = (prodId) => {
+    function mostrarProductos(productos) {
+        productos.forEach((producto) => {
+            let elementoProducto = document.createElement("div");
+            elementoProducto.className = "image"
+            elementoProducto.innerHTML = `
+            <image src=${producto.imagen} alt="card numero ${producto.id}">
+            <h2>${producto.nombre}</h2>
+            <h2>${producto.precio}</h2>
+            <button id="agregar${producto.id}">Comprar</button>`
         
-    // const elemento = datos.find((prod) => prod.id === prodId)
-    // carrito.push(elemento);
-  
-    // };
+        cardsProductos.append(elementoProducto)
 
-    // const saveLocal = () => {
-    //     localStorage.setItem("carrito" ,JSON.stringify(carrito))
-    // };
+        const botonCompra = document.getElementById(`agregar${producto.id}`)
+    
+        botonCompra.addEventListener('click', () => {
+            agregarCarrito(producto.id)
+        });
 
+        const agregarCarrito = (prodId) => {
+        
+            let elemento = productos.find((prod) => prod.id === prodId)
+            carrito.push(elemento);
+   
+        };
+        })
+    }
+});
+    
+//Organizar la interfaz del carrito
+ function showCart() {
+    
+    productsList.innerHTML = '';
+    carrito.forEach((producto) => {
+        const product = document.createElement("div");
+        product.className = "cart-body-2";
+        product.innerHTML = 
+        `
+            
+            <h1 class="title-product">${producto.nombre}</h1>
+            <img src=${producto.imagen} class="img-productos-cart"></img>
+            <button class="btn-cart" id="btn-sumar">+</button>
+            <button class="btn-cart" onclick="restar('${producto.id}')"id="btn-restar">-</button>
+           
+        `;
+        
+        productsList.append(product);
+   
+    });
+    
+    const header = document.createElement("div")
+    header.className = "header-cart"
+    header.innerHTML = `
+        <h1>Your Cart</h1>
+        <p>cantidad + ${carrito.length}<p>
+    `
+    productsList.appendChild(header)
+   
+    cartOpen = true;
+    
+}
 
+function hiddenCart() {
+    productsList.innerHTML = '';
+    cartOpen = false;
+}
 
 iconCart.addEventListener('click', () => {
+    if(cartOpen) {
+        hiddenCart();
+    } else {
+        showCart();
+        
+    }
+})
 
-   
-
-    productsList.classList.toggle("cart-list-products")
+function restar(prodId) {
     
-    const headerCarts = document.createElement("div")
-    headerCarts.className = "header-carrito"
-    headerCarts.innerHTML = `
-        <h1>Carrito</h1>
-        <box-icon name='exit'></box-icon>
-    `
-    headerCart.append(headerCarts)
+    //Obtenemos el elemento con el find
+    let elemento = carrito.find((prod) => prod.id == prodId) 
+    
+    //Obtenemos la posicion de ese elemento
+    let posicion = carrito.indexOf(elemento,0)
+    
+    //Borramos el elemento pasando la posicion
+    carrito.splice(posicion, 1)
+    
+}
 
-    carrito.forEach((producto) => {
-        const product = document.createElement("div")
-        product.className = "cart-body"
-        product.innerHTML = `
-            <h1>${producto.nombre}</h1>
-            <img src=${producto.imagen} class="img-productos-cart"></img>
-        `;
-
-    bodyCart.append(product)   
-    })
-
-
-
-
-  
