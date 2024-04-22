@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.createElement("div")
     header.className = "header-cart"
     header.innerHTML = `
-        <h1>Your Cart</h1>
-        <p>cantidad + ${carrito.length}<p>
+        <h1>Lista</h1>
+        <p> ${totalCarrito()} <p>
     `
     productsList.appendChild(header)
    
@@ -90,13 +90,16 @@ function hiddenCart() {
 }
 
 iconCart.addEventListener('click', () => {
-    if(cartOpen) {
-        hiddenCart();
-    } else {
-        showCart();
-        
-    }
+    cartOpen ? hiddenCart() : showCart();
 })
+
+function totalCarrito() {
+    if(carrito.length > 0) {
+        return innerHTML = carrito.length + " " + "productos"
+    } else {
+        return innerHTML = ""
+    }
+}
 
 function restar(prodId) {
     
