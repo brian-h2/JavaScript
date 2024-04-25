@@ -1,12 +1,9 @@
 /*  
-4. Crear contador en el icono carrito
-5. Crear Opcion de Eliminar producto o agregar
-6. Crear un total de los productos en el carrito
-    (Crear funcionalidad de restar para que reste la cantidad del carrito);
-7. Almacenar los productos aunque se actualice la pagina
+8.Crear boton vaciar cart
+9.Perfeccionar el front y subir a repo
  */
 
-const contadorCount = document.querySelector("cart");
+const contadorCount = document.getElementById("cart-count");
 
 const iconCart = document.getElementById("icon-cart")
 const productsList = document.getElementById("cart-products-list")
@@ -18,7 +15,7 @@ let carrito = [];
 let cartOpen = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const conexion = fetch("JSON/productos.json")
     .then(datos => datos.json())
     .then(productos => {mostrarProductos(productos)})
@@ -39,17 +36,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
         botonCompra.addEventListener('click', () => {
             agregarCarrito(producto.id)
+            alert("Se agrego correctamente al carrito")
+            showCart();
         });
 
         const agregarCarrito = (prodId) => {
         
             let elemento = productos.find((prod) => prod.id === prodId)
             carrito.push(elemento);
-   
+            
+            
         };
+        
+        
+
+       
         })
+    
     }
+
+    
+    
 });
+
+
     
 //Organizar la interfaz del carrito
  function showCart() {
@@ -63,25 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
             
             <h1 class="title-product">${producto.nombre}</h1>
             <img src=${producto.imagen} class="img-productos-cart"></img>
-            <button class="btn-cart" id="btn-sumar">+</button>
+            <button class="btn-cart" onclick="sumar('${producto.id}')" id="btn-sumar">+</button>
             <button class="btn-cart" onclick="restar('${producto.id}')"id="btn-restar">-</button>
-           
+
         `;
         
         productsList.append(product);
-   
+             
     });
     
     const header = document.createElement("div")
     header.className = "header-cart"
     header.innerHTML = `
         <h1>Lista</h1>
-        <p> ${totalCarrito()} <p>
+        
+        <button onlick="${vaciarCarrito}">Vaciar carrito</button>
+        
     `
+    agregarContador()
     productsList.appendChild(header)
-   
     cartOpen = true;
-    
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
 function hiddenCart() {
@@ -93,13 +105,23 @@ iconCart.addEventListener('click', () => {
     cartOpen ? hiddenCart() : showCart();
 })
 
-function totalCarrito() {
-    if(carrito.length > 0) {
-        return innerHTML = carrito.length + " " + "productos"
-    } else {
-        return innerHTML = ""
-    }
+// function totalCarrito() {
+//     if(carrito.length > 0) {
+        
+//         return innerHTML = carrito.length + " " + "productos"
+//     } else {
+//         return innerHTML = ""
+//     }
+// }
+
+const agregarContador = () => {
+    contadorCount.innerHTML =  `${carrito.length}`
 }
+
+const vaciarCarrito = () => {
+    carrito.splice()
+}
+
 
 function restar(prodId) {
     
@@ -111,6 +133,16 @@ function restar(prodId) {
     
     //Borramos el elemento pasando la posicion
     carrito.splice(posicion, 1)
-    
+    showCart();  
 }
 
+function sumar(prodId) {
+    let elemento = carrito.find((prod) => prod.id == prodId) 
+    carrito.push(elemento)
+    showCart()
+}
+document.addEventListener('DOMContentLoaded', () => {
+    if(localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito')) 
+    }
+})
