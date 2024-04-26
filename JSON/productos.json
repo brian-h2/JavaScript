@@ -2,6 +2,11 @@
 [
         {"id": 1, "nombre": "DSLR Camera", "cantidad": 7, "precio": 400, "imagen": "../assets/section/1.jpg" },
         {"id": 2, "nombre": "Drone", "cantidad": 3, "precio": 500, "imagen": "../assets/section/2.jpg"},
-        {"id": 3, "nombre": "Headphones", "cantidad": 5, "precio": 500, "imagen": "../assets/section/3.jpeg"}
-
+        {"id": 3, "nombre": "Headphones", "cantidad": 5, "precio": 500, "imagen": "../assets/section/3.jpeg"},
+        {"id": 4, "nombre": "Speakers", "cantidad": 5, "precio": 300, "imagen": "../assets/section/4.jpg"},
+        {"id": 5, "nombre": "Microphone", "cantidad": 2, "precio": 600, "imagen": "../assets/section/5.jpg"},
+        {"id": 6, "nombre": "Smart Band", "cantidad": 3, "precio": 100, "imagen": "../assets/section/6.jpeg"},
+        {"id": 7, "nombre": "Mini Headphones", "cantidad": 7, "precio": 800, "imagen": "../assets/section/7.jpg"},
+        {"id": 8, "nombre": "Microphone V2", "cantidad": 9, "precio": 350, "imagen": "../assets/section/8.jpg"},
+        {"id": 8, "nombre": "Camera", "cantidad": 9, "precio": 350, "imagen": "../assets/section/9.jpg"}
 ]

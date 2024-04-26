@@ -5,9 +5,8 @@
    
 }
 
-/*Medida Mobile: 300px;*/
-
-/*Medida: 1024px*/
+/*Terminar Formulario y footer*/
+/*Entregar trabajo*/
 
 :root{
     --bg-color: #161616;
@@ -30,8 +29,8 @@ body{
 .navbar-brand{
     font-size: 30px !important;
     padding-bottom: 11px !important;
+    
 }
-
 
 .cart-count{
     color: white;
@@ -96,7 +95,8 @@ body{
     font-weight: 600;
     margin-top: 50px;
     border: 2px solid white;
-    color: white;
+    color: gray;
+    font-size: 22px;
 }
 
 .dropdown{
@@ -180,27 +180,53 @@ body{
     transition: all 0.3s;
 }
 
+.box-3-form{
+    color: white;
+    border: 1px solid white;
+    max-width: 800px;
+    margin: auto;
+}
+
+.box-3-form form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.box-3-form input{
+    
+
+}
+.box-3-form input ::placeholder{
+    color: red;
+}
+.box-3-form textarea{
+
+    height: 90px;
+} 
+
 
 /*Cart*/
 
 .cart-body{
     display: flex;
     flex-direction: column-reverse;
-    width: 20%;
-    margin: 0 78%;
+    width: 30%;
+    margin: 0 68%;
     max-height: 98vh;
     position: fixed;
     text-align: center;
+    padding-bottom: 10px;
     top: 8vh;
     scrollbar-color: none;
     color: white;
-    background-color: #ff00007e;
-    border-radius: 15%;
+    overflow: hidden;
 }
 
 .cart-body-2{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -211,14 +237,35 @@ body{
 }
 
 .img-productos-cart{
-    padding: 10px;
     width: 120px;
     height: 100px;
     object-fit: cover;
+    padding: 20px;
 }
 
 .title-product{
-    font-size: 30px;
+    font-size: 15px;
+    padding-top: 30px;
+}
+
+.botones{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.btn-cart{
+    width: 22px;
+    background-color: #6d6d6d;
+    border: none;
+}
+
+.btn-vaciar{
+    width: 92px;
+    font-size: 15px;
+    color: white;
+    background-color: #6d6d6d;
+    border: none;
 }
 
 
@@ -264,5 +311,25 @@ body{
 @media (max-width: 960px) {
     .cart-count{
         display: none;
+    }
+}
+
+@media (min-width: 1325px) {
+    .cart-body{
+        width: 50%;
+    }
+
+    .title-product{
+        font-size: 20px;
+    }
+
+    .img-productos-cart{
+        padding: 5px;
+    }
+    .btn-cart{
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        overflow: hidden;
     }
 }

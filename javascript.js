@@ -1,15 +1,7 @@
-/*  
-8.Crear boton vaciar cart
-9.Perfeccionar el front y subir a repo
- */
-
 const contadorCount = document.getElementById("cart-count");
-
 const iconCart = document.getElementById("icon-cart")
 const productsList = document.getElementById("cart-products-list")
 const cardsProductos = document.getElementById("box-2")
-
-
 
 let carrito = [];
 let cartOpen = false;
@@ -44,19 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
             let elemento = productos.find((prod) => prod.id === prodId)
             carrito.push(elemento);
-            
-            
+          
         };
-        
-        
-
-       
+           
         })
     
     }
-
-    
-    
+  
 });
 
 
@@ -69,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const product = document.createElement("div");
         product.className = "cart-body-2";
         product.innerHTML = 
-        `
-            
+        `   
             <h1 class="title-product">${producto.nombre}</h1>
             <img src=${producto.imagen} class="img-productos-cart"></img>
-            <button class="btn-cart" onclick="sumar('${producto.id}')" id="btn-sumar">+</button>
-            <button class="btn-cart" onclick="restar('${producto.id}')"id="btn-restar">-</button>
-
+            <div class="botones"> 
+                <button class="btn-cart" onclick="sumar('${producto.id}')" id="btn-sumar">+</button>
+                <button class="btn-cart" onclick="restar('${producto.id}')"id="btn-restar">-</button>
+            </div>
         `;
         
         productsList.append(product);
@@ -87,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.innerHTML = `
         <h1>Lista</h1>
         
-        <button onlick="${vaciarCarrito}">Vaciar carrito</button>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
         
     `
     agregarContador()
@@ -105,23 +91,14 @@ iconCart.addEventListener('click', () => {
     cartOpen ? hiddenCart() : showCart();
 })
 
-// function totalCarrito() {
-//     if(carrito.length > 0) {
-        
-//         return innerHTML = carrito.length + " " + "productos"
-//     } else {
-//         return innerHTML = ""
-//     }
-// }
-
 const agregarContador = () => {
     contadorCount.innerHTML =  `${carrito.length}`
 }
 
 const vaciarCarrito = () => {
-    carrito.splice()
+    localStorage.clear() & window.location.reload() 
+    alert("Carrito vaciado correctamente") 
 }
-
 
 function restar(prodId) {
     
