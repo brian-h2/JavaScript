@@ -1,7 +1,10 @@
 
 ## Proyecto Finalizado
 
-Crear un eccomerce para practicar JS antes de empezar con react, se realiza con design mobile para despues pasar a escritorio.
+Crear un E-commerce para practicar JS antes de empezar con react, se realiza con design mobile para despues pasar a escritorio.
+
+[Link a deploy](https://e-commerce-silk-tau-28.vercel.app/)
+
 
 ***
 
