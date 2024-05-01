@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
             elementoProducto.className = "image"
             elementoProducto.innerHTML = `
             <image src=${producto.imagen} alt="card numero ${producto.id}">
-            <h2>${producto.nombre}</h2>
-            <h2>${producto.precio}</h2>
-            <button id="agregar${producto.id}">Comprar</button>`
+            <h2 class="name-product"> ${producto.nombre}</h2>
+            <h2>$ ${producto.precio}.00</h2>
+            <button id="agregar${producto.id}">Buy</button>`
         
         cardsProductos.append(elementoProducto)
 
@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-    
-//Organizar la interfaz del carrito
  function showCart() {
     
     productsList.innerHTML = '';
